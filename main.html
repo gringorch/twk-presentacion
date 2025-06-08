@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Negocios Interactivo - TWK Moda Circular</title>
+    <!-- Chosen Palette: Calm Harmony Neutrals -->
+    <!-- Application Structure Plan: A single-page, narrative-driven scrolling experience. It starts with 'Fundamentals', then problem/solution, business model, a 'Marketing' section with a 'Redes' tab featuring an auto-playing video, strategy, financials, and social impact. The AI section has been removed as per user request. -->
+    <!-- Visualization & Content Choices:
+        - Redes Tab: Report Info -> Social Media Ad Strategy -> Goal: Demonstrate/Engage -> Viz: Autoplaying HTML <video> -> Interaction: Automatic playback -> Justification: Provides a live, dynamic simulation of the core advertising tactic.
+        - Fundamentals, Marketing, Virtuous Circle, Financials, SWOT/Porter: Existing structures remain to provide comprehensive, interactive information.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 2.5rem;
+        }
+        .section-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            color: #4b5563;
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button.active {
+            background-color: #3b82f6 !important;
+            color: white !important;
+            border-color: #3b82f6;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#f8f7f4] text-[#333]">
+
+    <header class="bg-[#A7C7E7] sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white">
+                TWK
+            </div>
+            <div class="hidden md:flex space-x-1 flex-wrap">
+                <a href="#fundamentos" class="nav-button text-white font-semibold px-2 py-2 rounded-md hover:bg-white hover:text-[#3b82f6]">Fundamentos</a>
+                <a href="#concepto" class="nav-button text-white font-semibold px-2 py-2 rounded-md hover:bg-white hover:text-[#3b82f6]">Concepto</a>
+                <a href="#modelo" class="nav-button text-white font-semibold px-2 py-2 rounded-md hover:bg-white hover:text-[#3b82f6]">Modelo</a>
+                <a href="#marketing" class="nav-button text-white font-semibold px-2 py-2 rounded-md hover:bg-white hover:text-[#3b82f6]">Marketing</a>
+                <a href="#estrategia" class="nav-button text-white font-semibold px-2 py-2 rounded-md hover:bg-white hover:text-[#3b82f6]">Estrategia</a>
+                <a href="#inversion" class="nav-button text-white font-semibold px-2 py-2 rounded-md hover:bg-white hover:text-[#3b82f6]">Inversión</a>
+                <a href="#impacto" class="nav-button text-white font-semibold px-2 py-2 rounded-md hover:bg-white hover:text-[#3b82f6]">Impacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6">
+
+        <section id="hero" class="text-center py-20 md:py-28">
+            <img src="src/img/logo.png" alt="Logo de TWK" class="w-48 h-48 mx-auto mb-8 rounded-full shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/A7C7E7/FFFFFF?text=TWK';">
+            <h1 class="text-5xl md:text-7xl font-bold text-[#2c3e50]">TWK: Moda Circular para Niños</h1>
+            <p class="text-2xl md:text-3xl mt-4 text-[#34495e]">"Pequeñas prendas, grandes sonrisas"</p>
+            <a href="#fundamentos" class="mt-10 inline-block bg-[#3b82f6] text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-[#2563eb] transition-transform transform hover:scale-105">
+                Explorar el Proyecto
+            </a>
+        </section>
+
+        <section id="fundamentos" class="py-16 md:py-24">
+            <div class="text-center mb-12">
+                <h2 class="section-title">Fundamentos del Proyecto</h2>
+                <p class="section-subtitle mt-4 max-w-3xl mx-auto">Aquí sentamos las bases de TWK. Desde nuestro propósito y valores hasta la estructura que nos permite funcionar y las reglas que garantizan una relación transparente con nuestros clientes y consignatarios.</p>
+            </div>
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                <div class="flex flex-wrap justify-center border-b border-gray-200 mb-6" id="fundamentos-tabs">
+                    <button class="tab-button active py-3 px-6 font-semibold text-gray-600 border-b-2" data-tab="resumen">Resumen Ejecutivo</button>
+                    <button class="tab-button py-3 px-6 font-semibold text-gray-600 border-b-2 border-transparent" data-tab="adn">Nuestro ADN</button>
+                    <button class="tab-button py-3 px-6 font-semibold text-gray-600 border-b-2 border-transparent" data-tab="equipo">Equipo</button>
+                    <button class="tab-button py-3 px-6 font-semibold text-gray-600 border-b-2 border-transparent" data-tab="condiciones">Condiciones</button>
+                </div>
+                <div id="resumen" class="tab-content active"><h3 class="text-xl font-bold mb-4">Resumen Ejecutivo</h3><p class="text-gray-700 leading-relaxed">En THEWALLKIDS, creemos en un mundo donde la moda infantil sea sostenible, accesible y consciente. Nos especializamos en moda circular para niños, ofreciendo prendas de alta calidad que tienen más de una vida útil. Nuestro objetivo es reducir el impacto ambiental de la industria textil promoviendo el reciclaje y prolongación de la vida útil de la ropa infantil. Sabemos que los niños crecen rápido y que muchas prendas quedan en perfecto estado tras poco uso. Por eso, ofrecemos una alternativa responsable que cuida el planeta, apoya a las familias y fomenta un consumo más consciente. A través de nuestra plataforma, cada prenda encuentra un nuevo hogar.</p></div>
+                <div id="adn" class="tab-content"><div class="grid md:grid-cols-3 gap-6 text-center"><div class="p-4"><h4 class="font-bold text-xl mb-2">Misión</h4><p class="text-sm text-gray-600">Liderar la revolución de la moda circular, ofreciendo prendas de alta calidad y estilo, dándole a la ropa de tus hijos segundas oportunidades para reducir residuos y ayudar a las familias a obtener otro ingreso.</p></div><div class="p-4"><h4 class="font-bold text-xl mb-2">Visión</h4><p class="text-sm text-gray-600">Ser pioneros en la moda circular para bebés y niños, reconocidos a nivel local por nuestra innovación, calidad y compromiso con la sostenibilidad, inspirando a otros a seguir nuestro ejemplo.</p></div><div class="p-4"><h4 class="font-bold text-xl mb-2">Valores</h4><p class="text-sm text-gray-600">Sostenibilidad, Calidad, Transparencia e Integridad. Creemos en educar y concientizar a nuestros clientes sobre el impacto positivo de sus decisiones de consumo.</p></div></div></div>
+                <div id="equipo" class="tab-content"><h3 class="text-xl font-bold mb-4 text-center">Organigrama</h3><ul class="space-y-2 text-center text-sm"><li><span class="font-bold bg-blue-100 px-2 py-1 rounded">Dirección:</span> Ayelen Ivaldi</li><li class="pl-4"><ul class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4"><li><span class="font-semibold bg-gray-100 px-2 py-1 rounded-md block">Comex</span><span class="text-gray-700 block mt-1">Mauro Aprile</span></li><li><span class="font-semibold bg-gray-100 px-2 py-1 rounded-md block">Gerencia Administración</span><span class="text-gray-700 block mt-1">Agustina Martinez</span></li><li><span class="font-semibold bg-gray-100 px-2 py-1 rounded-md block">Gerencia Marketing</span><span class="text-gray-700 block mt-1">Facundo Fleitas</span></li><li><span class="font-semibold bg-gray-100 px-2 py-1 rounded-md block">Encargado Almacén</span><span class="text-gray-700 block mt-1">Erika Velez</span></li></ul></li></ul></div>
+                <div id="condiciones" class="tab-content"><h3 class="text-xl font-bold mb-4">Condiciones Generales de Consignación</h3><ol class="list-decimal list-inside space-y-2 text-gray-700 text-sm"><li>Las prendas deben estar en buen estado, sin manchas, roturas ni desgaste excesivo.</li><li>Se aceptan únicamente prendas contemporáneas y de temporada.</li><li>Las prendas que no cumplen con los requisitos pueden ser donadas o recicladas.</li><li>Por cada prenda vendida, el consignatario recibirá un tercio (1/3) del valor estimado de una prenda nueva similar.</li><li>El pago se realizará a los 30 días de efectuada la venta, previa notificación por email.</li><li>Las prendas permanecerán a la venta por un período de 60 días.</li></ol></div>
+            </div>
+        </section>
+
+        <section id="concepto" class="py-16 md:py-24"><div class="text-center mb-12"><h2 class="section-title">El Problema y Nuestra Solución</h2><p class="section-subtitle mt-4 max-w-3xl mx-auto">La industria de la moda infantil tradicional genera un ciclo de alto costo y desperdicio. TWK nace para transformar este paradigma con una alternativa inteligente, consciente y sostenible.</p></div><div class="grid md:grid-cols-2 gap-8 items-center"><div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200"><h3 class="text-2xl font-bold text-red-500 mb-4 flex items-center"><span class="text-3xl mr-3">👎</span> El Desafío del Fast Fashion</h3><ul class="space-y-3 text-gray-700"><li><strong>Crecimiento Acelerado:</strong> Los niños dejan su ropa casi nueva en meses, generando desuso.</li><li><strong>Impacto Ambiental:</strong> Enorme consumo de recursos y generación de residuos textiles.</li><li><strong>Gasto Familiar Elevado:</strong> Un costo constante para los presupuestos familiares.</li></ul></div><div class="bg-white p-8 rounded-xl shadow-lg border-2 border-green-500"><h3 class="text-2xl font-bold text-green-500 mb-4 flex items-center"><span class="text-3xl mr-3">👍</span> La Oportunidad Circular de TWK</h3><ul class="space-y-3 text-gray-700"><li><strong>Segundas Oportunidades:</strong> Damos nueva vida a prendas de alta calidad, promoviendo la reutilización.</li><li><strong>Sostenibilidad Real:</strong> Reducimos el impacto ambiental y fomentamos un consumo consciente.</li><li><strong>Ahorro Inteligente:</strong> Ofrecemos moda premium a precios accesibles, aliviando la carga económica.</li></ul></div></div></section>
+
+        <section id="modelo" class="py-16 md:py-24 bg-white rounded-2xl shadow-xl my-16"><div class="text-center mb-12 px-6"><h2 class="section-title">Nuestro Círculo Virtuoso</h2><p class="section-subtitle mt-4 max-w-3xl mx-auto">Nuestro modelo de negocio es simple, transparente y beneficia a todos. Se basa en la consignación para crear un ecosistema donde la calidad, el ahorro y la sostenibilidad giran en armonía.</p></div><div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center px-6"><div class="step-card p-4 cursor-pointer" data-step="1"><div class="text-5xl mb-3">👕</div><h3 class="font-bold text-lg">1. Recolección</h3><p class="text-sm text-gray-600">Las familias traen la ropa.</p></div><div class="flex items-center justify-center text-3xl text-gray-300 hidden md:flex">→</div><div class="step-card p-4 cursor-pointer" data-step="2"><div class="text-5xl mb-3">✨</div><h3 class="font-bold text-lg">2. Curaduría</h3><p class="text-sm text-gray-600">Seleccionamos las mejores prendas.</p></div><div class="flex items-center justify-center text-3xl text-gray-300 hidden md:flex">→</div><div class="step-card p-4 cursor-pointer" data-step="3"><div class="text-5xl mb-3">💰</div><h3 class="font-bold text-lg">3. Venta y Beneficio</h3><p class="text-sm text-gray-600">Vendemos y compartimos ganancias.</p></div></div><div id="step-details" class="mt-8 px-6 md:px-12 py-6 bg-blue-50 rounded-lg min-h-[100px] flex items-center justify-center transition-all duration-300"><p class="text-center text-gray-700 font-semibold">Haz clic en un paso para ver los detalles.</p></div></section>
+
+        <section id="marketing" class="py-16 md:py-24"><div class="text-center mb-12"><h2 class="section-title">Marketing y Alcance</h2><p class="section-subtitle mt-4 max-w-3xl mx-auto">Nuestra voz y nuestra imagen. Cómo conectamos con nuestra comunidad, comunicamos nuestro valor único y construimos una marca memorable y coherente.</p></div><div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg"><div class="flex flex-wrap justify-center border-b border-gray-200 mb-6" id="marketing-tabs"><button class="tab-button active py-3 px-6 font-semibold text-gray-600 border-b-2" data-tab="publicidad">Estrategia de Valor</button><button class="tab-button py-3 px-6 font-semibold text-gray-600 border-b-2 border-transparent" data-tab="merchandising">Merchandising</button><button class="tab-button py-3 px-6 font-semibold text-gray-600 border-b-2 border-transparent" data-tab="redes">Video para Redes</button></div>
+            <div id="publicidad" class="tab-content active"><h3 class="text-xl font-bold mb-4 text-center">Estrategia de Valor: Precio y Calidad</h3><p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">Nuestra publicidad en redes sociales es directa y efectiva. Mostramos la diferencia de precios real con marcas de fast-fashion para evidenciar el ahorro de hasta un 70% que ofrecemos por la misma prenda.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center max-w-4xl mx-auto"><div class="border-2 border-red-300 p-6 rounded-lg text-center bg-red-50"><h4 class="text-lg font-semibold text-red-700">Tienda Convencional</h4><p class="text-4xl font-bold text-red-600 my-3">$29.087</p><p class="text-sm text-red-500">Precio por un pijama nuevo.</p></div><div class="border-2 border-green-400 p-6 rounded-lg text-center bg-green-50"><h4 class="text-lg font-semibold text-green-700">En THE WALL KIDS</h4><p class="text-4xl font-bold text-green-600 my-3">Desde $5.500</p><p class="text-sm text-green-500">Misma calidad, precio inteligente.</p></div></div></div>
+            <div id="merchandising" class="tab-content"><h3 class="text-xl font-bold mb-4 text-center">Construyendo Nuestra Identidad de Marca</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6 items-center"><div class="text-center"><h4 class="text-lg font-semibold mb-2">Logo y Slogan</h4><img src="src/img/logo.png" alt="Logo de TWK" class="w-32 h-32 mx-auto mb-4 rounded-full shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/128x128/A7C7E7/FFFFFF?text=TWK';"><p class="mt-4 text-lg italic text-gray-700">"Pequeñas prendas, grandes sonrisas"</p></div><div class="text-center md:text-left"><h4 class="text-lg font-semibold mb-2">Bolsas Ecológicas</h4><p class="text-gray-600 text-sm">Entregamos todas nuestras prendas en bolsas ecológicas reutilizables, reforzando nuestro compromiso con la sostenibilidad en cada detalle. No es solo un empaque, es una declaración de nuestros valores y un recordatorio tangible de la importancia de reducir, reutilizar y reciclar.</p></div></div></div>
+            <div id="redes" class="tab-content"><h3 class="text-xl font-bold mb-4 text-center">Demostración de Anuncio para Redes</h3><div class="max-w-md mx-auto bg-black rounded-lg shadow-lg overflow-hidden"><video class="w-full h-auto" src="src/video/redes.mp4" autoplay loop muted playsinline></video></div><p class="text-center text-gray-600 mt-4 text-sm max-w-2xl mx-auto">Este video simula una historia de Instagram. Se filma la página web de una marca líder, mostrando sus precios, y luego se compara con los precios mucho más bajos de TWK, demostrando el valor y el ahorro de forma rápida y visual para captar la atención del público objetivo.</p></div>
+        </div></section>
+
+        <section id="estrategia" class="py-16 md:py-24"><div class="text-center mb-12"><h2 class="section-title">Análisis Estratégico</h2><p class="section-subtitle mt-4 max-w-3xl mx-auto">Entendemos el mercado y nuestro lugar en él. Nuestra estrategia se basa en una propuesta de valor clara, un conocimiento profundo de la competencia y la capitalización de las tendencias actuales.</p></div><div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg"><div class="flex flex-wrap justify-center border-b border-gray-200 mb-6" id="estrategia-tabs"><button class="tab-button active py-3 px-6 font-semibold text-gray-600 border-b-2" data-tab="foda">Análisis FODA</button><button class="tab-button py-3 px-6 font-semibold text-gray-600 border-b-2 border-transparent" data-tab="porter">5 Fuerzas de Porter</button></div><div id="foda" class="tab-content active"><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="p-4 bg-green-50 rounded-lg"><h4 class="font-bold text-lg text-green-800 flex items-center mb-2"><span class="mr-2 text-xl">💪</span> Fortalezas</h4><ul class="list-disc list-inside text-sm text-green-700 space-y-1"><li>Modelo de negocio sostenible y de bajo costo.</li><li>Productos únicos y de alta calidad curada.</li><li>Marca con propósito claro y fuerte conexión emocional.</li></ul></div><div class="p-4 bg-yellow-50 rounded-lg"><h4 class="font-bold text-lg text-yellow-800 flex items-center mb-2"><span class="mr-2 text-xl">☀️</span> Oportunidades</h4><ul class="list-disc list-inside text-sm text-yellow-700 space-y-1"><li>Creciente conciencia ecológica en consumidores.</li><li>Mercado en busca de alternativas económicas.</li><li>Potencial para educar y liderar un cambio de hábitos.</li></ul></div><div class="p-4 bg-orange-50 rounded-lg"><h4 class="font-bold text-lg text-orange-800 flex items-center mb-2"><span class="mr-2 text-xl">🔗</span> Debilidades</h4><ul class="list-disc list-inside text-sm text-orange-700 space-y-1"><li>Dependencia de la oferta de consignatarios (stock variable).</li><li>La selección manual de prendas requiere tiempo y dedicación.</li></ul></div><div class="p-4 bg-red-50 rounded-lg"><h4 class="font-bold text-lg text-red-800 flex items-center mb-2"><span class="mr-2 text-xl">⛈️</span> Amenazas</h4><ul class="list-disc list-inside text-sm text-red-700 space-y-1"><li>Fuerte competencia del fast fashion y sus precios bajos.</li><li>Necesidad de educar a consumidores no familiarizados.</li></ul></div></div></div><div id="porter" class="tab-content"><div class="space-y-4"><div><h4 class="font-bold">Poder de negociación de los clientes (ALTO)</h4><p class="text-sm text-gray-600">Los clientes comparan precios fácilmente. Nuestra estrategia: ofrecer un valor superior combinando precio, calidad y sostenibilidad.</p></div><div><h4 class="font-bold">Amenaza de productos sustitutos (ALTA)</h4><p class="text-sm text-gray-600">La moda rápida y las ferias son alternativas. Nuestra estrategia: diferenciarnos con una marca fuerte, curaduría experta y una comunidad sólida.</p></div><div><h4 class="font-bold">Amenaza de nuevos competidores (MEDIA)</h4><p class="text-sm text-gray-600">La barrera de entrada es baja. Nuestra estrategia: profesionalismo, experiencia de compra superior y servicio personalizado para fidelizar.</p></div><div><h4 class="font-bold">Poder de negociación de los proveedores (BAJO)</h4><p class="text-sm text-gray-600">El modelo de consignación nos da control total sobre los costos de inventario, eliminando la dependencia de proveedores tradicionales.</p></div><div><h4 class="font-bold">Rivalidad entre competidores (MEDIA - ALTA)</h4><p class="text-sm text-gray-600">Existen otras tiendas de segunda mano. Nuestra estrategia: invertir en branding y una experiencia de compra memorable.</p></div></div></div></div></section>
+
+        <section id="inversion" class="py-16 md:py-24"><div class="text-center mb-12"><h2 class="section-title">Fotografía Financiera</h2><p class="section-subtitle mt-4 max-w-3xl mx-auto">Nuestro plan financiero es sólido y está diseñado para la escalabilidad. Con una inversión inicial de $18.000.000 ARS, priorizamos el talento humano y la infraestructura para un crecimiento sostenido.</p></div><div class="grid md:grid-cols-2 gap-8 items-center"><div class="bg-white p-8 rounded-2xl shadow-lg"><h3 class="text-2xl font-bold mb-4">Distribución del Capital Inicial</h3><p class="text-gray-600 mb-2"><strong>Origen del Capital:</strong></p><ul class="list-disc list-inside text-gray-600 mb-4"><li>Aportes de socios fundadores</li><li>Crédito del programa "Emprendimiento Argentino"</li></ul><p class="text-gray-600">El modelo de consignación nos permite no inmovilizar capital en stock, destinando los recursos a áreas clave como equipo, marketing e infraestructura, lo que impulsa nuestro crecimiento.</p></div><div class="bg-white p-6 rounded-2xl shadow-lg"><div class="chart-container"><canvas id="investmentChart"></canvas></div></div></div></section>
+
+        <section id="impacto" class="py-16 md:py-24"><div class="text-center mb-12"><h2 class="section-title">Nuestro Compromiso: Más Allá del Negocio</h2><p class="section-subtitle mt-4 max-w-3xl mx-auto">TWK es un agente de cambio. Cada prenda que recirculamos es una victoria para el planeta y un apoyo para las familias. Medimos nuestro éxito no solo en términos económicos, sino en el impacto positivo que generamos.</p></div><div class="grid md:grid-cols-2 gap-8"><div class="bg-green-100 p-8 rounded-xl border-l-4 border-green-500"><h3 class="text-2xl font-bold text-green-800 mb-3">🌎 Impacto Ambiental</h3><p class="text-green-700">Reducimos activamente el desecho textil, disminuimos el consumo de recursos naturales y promovemos un ciclo de vida más largo para cada prenda.</p></div><div class="bg-blue-100 p-8 rounded-xl border-l-4 border-blue-500"><h3 class="text-2xl font-bold text-blue-800 mb-3">👨‍👩‍👧‍👦 Impacto Social</h3><p class="text-blue-700">Ofrecemos una opción económica para vestir a los niños con calidad, generamos un ingreso adicional para las familias que consignan y fomentamos la solidaridad a través de donaciones.</p></div></div></section>
+
+    </main>
+
+    <footer class="bg-[#2c3e50] text-white mt-16"><div class="container mx-auto py-10 px-6 text-center"><h3 class="text-3xl font-bold">TWK</h3><p class="mt-2 text-lg">Únete a la revolución de la moda circular.</p><div class="mt-4"><p class="font-semibold">@thewallkids</p></div></div></footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    function setupSmoothScrolling() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    }
+
+    function setupVirtuousCircle() {
+        const stepCards = document.querySelectorAll('.step-card');
+        const stepDetailsContainer = document.getElementById('step-details');
+        const stepDetailsContent = {
+            1: '<strong>1. Recolección:</strong> Las familias nos traen prendas en buen estado que sus hijos ya no usan. Se les entrega un recibo detallado por cada artículo.',
+            2: '<strong>2. Curaduría y Selección:</strong> Nuestro equipo revisa cada prenda. Las aceptadas se clasifican, etiquetan y preparan para la venta. Las que no cumplen los requisitos se pueden donar.',
+            3: '<strong>3. Venta y Beneficio Compartido:</strong> Vendemos las prendas a través de nuestros canales. A los 30 días de la venta, el consignatario recibe 1/3 del valor de una prenda nueva similar. ¡Todos ganan!'
+        };
+        stepCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const step = card.dataset.step;
+                stepDetailsContainer.innerHTML = `<p class="text-center text-gray-800">${stepDetailsContent[step]}</p>`;
+                stepCards.forEach(c => c.classList.remove('bg-blue-100', 'rounded-lg', 'scale-105'));
+                card.classList.add('bg-blue-100', 'rounded-lg', 'scale-105');
+            });
+        });
+    }
+
+    function setupTabs(containerId) {
+        const tabContainer = document.getElementById(containerId);
+        if (!tabContainer) return;
+
+        const tabButtons = tabContainer.querySelectorAll('.tab-button');
+        const tabContents = tabContainer.parentElement.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const tabId = button.dataset.tab;
+
+                tabContents.forEach(content => {
+                    if (content.id === tabId) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            });
+        });
+    }
+
+    function setupInvestmentChart() {
+        const ctx = document.getElementById('investmentChart').getContext('2d');
+        const investmentData = {
+            labels: ['Sueldos y Cargas Sociales (69%)','Mobiliario e Infraestructura (14%)','Marketing Digital (6%)','Gastos Operativos (11%)'],
+            datasets: [{
+                label: 'Distribución del Capital Inicial',
+                data: [69, 14, 6, 11],
+                backgroundColor: ['#3b82f6','#93c5fd','#60a5fa','#bfdbfe'],
+                borderColor: '#ffffff',
+                borderWidth: 3,
+                hoverOffset: 4
+            }]
+        };
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: investmentData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { padding: 15, font: { size: 12 } } },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) { label += ': '; }
+                                if (context.parsed !== null) { label += context.parsed + '%'; }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+    }
+
+    setupSmoothScrolling();
+    setupVirtuousCircle();
+    setupTabs('fundamentos-tabs');
+    setupTabs('marketing-tabs');
+    setupTabs('estrategia-tabs');
+    setupInvestmentChart();
+
+});
+</script>
+</body>
+</html>

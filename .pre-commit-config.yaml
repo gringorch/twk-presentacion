@@ -1,0 +1,28 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        description: "Elimina espacios en blanco al final de las líneas"
+      - id: end-of-file-fixer
+        description: "Asegura que los archivos terminen con una nueva línea"
+      - id: check-merge-conflict
+        description: "Verifica marcadores de conflicto de merge"
+      - id: check-added-large-files
+        description: "Previene la adición de archivos grandes"
+        args: ['--maxkb=1000']
+      - id: check-yaml
+        description: "Verifica sintaxis de archivos YAML"
+      - id: check-json
+        description: "Verifica sintaxis de archivos JSON"
+      - id: mixed-line-ending
+        description: "Reemplaza o verifica terminaciones de línea mixtas"
+        args: ['--fix=lf']
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.0
+    hooks:
+      - id: prettier
+        description: "Formatea código con Prettier"
+        types_or: [css, html, javascript, json, markdown]
+        args: ['--write', '--tab-width=2', '--single-quote=false']
